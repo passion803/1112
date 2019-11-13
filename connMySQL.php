@@ -1,17 +1,12 @@
 <?php
+$sDBHost = '127.0.0.1';
+$sDBUserName = 'root';
+$sDBPassword = '';
+$sDBName = 'msg';
 
-$db_host = '127.0.0.1';
-$db_userName = 'root';
-$db_password = '';
-$db_name = 'msg';
-
-$db_link = @mysqli_connect($db_host, $db_userName, $db_password, $db_name);
-if (!$db_link) {
+$oDBLink = @mysqli_connect($sDBHost, $sDBUserName, $sDBPassword, $sDBName);
+if (!$oDBLink) {
     die('資料庫連結失敗!');
-} else {
-   echo '資料庫連結成功';
 }
-
-mysqli_query($db_link, "SET NAMES 'utf8'");
-
+mysqli_query($oDBLink, "SET NAMES 'utf8'");
 ?>

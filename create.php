@@ -2,16 +2,16 @@
 if (isset($_POST["action"])&&($_POST["action"] == "create")) {
   include("connMySQL.php");
 	
-  $author = $_POST["mAuthor"];
-  $subject = $_POST["mSubject"];
-  $content = $_POST["mContent"];
-  $current_time = date("Y-m-d H:i:s");
+  $sAuthor = $_POST["mAuthor"];
+  $sSubject = $_POST["mSubject"];
+  $sContent = $_POST["mContent"];
+  $dDate = date("Y-m-d H:i:s");
 
   //執行SQL查詢
-  $sql_query = "INSERT INTO message(mAuthor, mSubject, mContent, mDate)
-          VALUES('$author', '$subject', '$content', '$current_time')";
+  $sSql = "INSERT INTO message(mAuthor, mSubject, mContent, mDate)
+          VALUES('$sAuthor', '$sSubject', '$sContent', '$dDate')";
 
-  mysqli_query($db_link,$sql_query);
+  mysqli_query($oDBLink,$sSql);
 
   //導回index.php
   header("location:index.php");
